@@ -12,13 +12,18 @@
             <h4> Lets Go!</h4>
             <hr>
             <p> In this Lab I will be making a Responsive Web by using Bootstrap!</p>
-    <ul>
-    <lih><em>Favorite Video Games</em></lih>
-        <li>Kingdome Hearts</li>
-        <li>Rachet and Clank</li>
-        <li>Sly cooper the thievius raccoonus</li>
-        <img src="https://assets-prd.ignimgs.com/2024/09/04/warhammer-40000-space-marine-2-2024-08-27-02-23-25-1725416108241.png?crop=16%3A9&width=888" alt="img" style="width:200px">
-    </ul>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="https://assets-prd.ignimgs.com/2024/09/04/warhammer-40000-space-marine-2-2024-08-27-02-23-25-1725416108241.png?crop=16%3A9&width=888" alt="img" style="width:200px">
+        </div>
+    <div class="grid-container">
+        <div class="grid-item">
+            <lih><em>Favorite Video Games</em></lih>
+            <li>Kingdome Hearts</li>
+            <li>Rachet and Clank</li>
+            <li>Sly cooper the thievius raccoonus</li>
+        </div>
+    </div>
     <hr> 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -53,8 +58,20 @@ img {
 }
 </style>
 
+<style>
 
-    
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .grid-item img {
+    max-width: 100%;
+    height: auto;
+  }</style>
+
+
     
     
     
