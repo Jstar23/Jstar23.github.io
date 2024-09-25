@@ -17,7 +17,7 @@
             <hr>
     <div class="grid-container">
         <div class="grid-item">
-            <img src="https://assets-prd.ignimgs.com/2024/09/04/warhammer-40000-space-marine-2-2024-08-27-02-23-25-1725416108241.png?crop=16%3A9&width=888" alt="img" style="width: 100px">
+            <img src="https://assets-prd.ignimgs.com/2024/09/04/warhammer-40000-space-marine-2-2024-08-27-02-23-25-1725416108241.png?crop=16%3A9&width=888" alt="img" style="width: 250px", border-radius: 50%>
         </div>
     <div class="grid-container">
         <div class="grid-item">
@@ -63,12 +63,10 @@
 
  <!-- repeat() means it will continue doing the same columins over and over again if add pictures or a list or more. 
   (2, 1fr) means 2 columins and 1 equal parts spacing -->
-  <!-- The reson I left Width and Height auto because Just easiler to do to be honest and dont have keep updating the website  -->
+  <!-- The reson I left Width and Height auto because Just easiler to do to be honest and dont have keep updating the website 
+   The Reson for the overflow Because I having problems with The grid-Template-columns was confilct with the navbar so I searched up 
+   how to make the navbar go the full page and it gave me overflow and used with the auto to fix that issue -->
 <style>
-
-img {
-  border-radius: 50%;
-}
 
 .grid-container {
     display: grid;
@@ -84,14 +82,11 @@ img {
   overflow:auto;
 }
 
-
 </style>
     
     
     
-    
-    
-    
+  
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
