@@ -16,11 +16,11 @@
             <p> In this Lab I will be making a Responsive Web by using Bootstrap!</p>
             <hr>
     <div class="grid-container">
-        <div class="grid-item">
+        <div class="grid-item1">
             <img src="https://assets-prd.ignimgs.com/2024/09/04/warhammer-40000-space-marine-2-2024-08-27-02-23-25-1725416108241.png?crop=16%3A9&width=888" alt="img" style="width:200px">
         </div>
     <div class="grid-container">
-        <div class="grid-item">
+        <div class="grid-item2">
             <lih><em>Favorite Video Games</em></lih>
             <li>Kingdome Hearts</li>
             <li>Rachet and Clank</li>
@@ -63,6 +63,7 @@
 
  <!-- repeat() means it will continue doing the same columins over and over again if add pictures or a list or more. 
   (2, 1fr) means 2 columins and 1 equal parts spacing -->
+  <!-- The reson I left Width and Height auto because -->
 <style>
 
 img {
@@ -74,10 +75,15 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .grid-item img {
-    width: auto;
-    height: auto;
+  .grid-item1 {
+    width:auto;
+    height:auto;
   }
+
+  .grid-item2 {
+  text-emphasis-color: blue;
+  }
+
 
    .navbar {
   overflow:auto;
