@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<div>
     <div class="container">
         <div class="jumbotron">
             <title>Javier Reyes CSC 225 Lab 3</title>
@@ -16,9 +16,11 @@
             <p> In this Lab I will be making a Responsive Web by using Bootstrap!</p>
             <hr>
     <div class="grid-container">
-    <img src="https://assets-prd.ignimgs.com/2024/09/04/warhammer-40000-space-marine-2-2024-08-27-02-23-25-1725416108241.png?crop=16%3A9&width=888" alt="img" style="width: 200px">
-      </div>
-        <div>
+        <div class="grid-item">
+            <img src="https://assets-prd.ignimgs.com/2024/09/04/warhammer-40000-space-marine-2-2024-08-27-02-23-25-1725416108241.png?crop=16%3A9&width=888" alt="img" style="width: 200px">
+        </div>
+    <div class="grid-container">
+        <div class="grid-item">
             <lih><em>Favorite Video Games</em></lih>
             <li>Kingdome Hearts</li>
             <li>Rachet and Clank</li>
@@ -71,9 +73,12 @@ img{
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: (auto, auto);
-  }
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.grid-item {
+ height: 20 ;
+}
 
    .navbar {
   overflow:auto;
