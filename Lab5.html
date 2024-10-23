@@ -50,17 +50,19 @@
             <button onclick="submitForm()">Register Now!</button>
             <p>Click me to try again!</p>
         </form>
-        <div id="message" class="alert-danger"></div>
+        <div id="message" class="mt-3"></div>
         <div class="alert alert-danger"></div>
     </div>
 <script>
     function SubmitForm() {
-        var FirstName = document.getElementById('firstName').elements;
-        var LastName = document.getElementById('LastName').elements;
-        var Email = document.getElementById('Email').elements;
-        var Password = document.getElementById('Password').elements;
-        var DateofBirth = document.getElementById('DateofBirth').elements;
-    
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+        var FirstName = document.getElementById('firstName').value;
+        var LastName = document.getElementById('LastName').value;
+        var Email = document.getElementById('Email').value;
+        var Password = document.getElementById('Password').value;
+        var DateofBirth = document.getElementById('DateofBirth').value;
+
         var specialChar = /[!@#$%^&*]/;
         if (!specialChar.test(Password)){
             document.getElementById('message').innerHTML = 'Password must contain at least one special character (! or @ or # or $ or % or ^ or & or *).';
@@ -78,8 +80,10 @@
         };
 
         document.getElementById('message').innerHTML = ''
-
-    }
+        console.log(userdata);
+    });
+ }
+  SubmitForm();
 </script>
 
 
