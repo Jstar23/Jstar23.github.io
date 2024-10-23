@@ -64,7 +64,7 @@
 
         var specialChar = /[!@#$%^&*]/;
         if (!specialChar.test(Password)){
-            document.getElementById('message').innerHTML = 'Password must contain at least one special character (!, @, #, $, %, ^, &, *).';
+            document.getElementById('message').innerHTML = '<div class="alert alert-danger">Password must contain at least one special character (!, @, #, $, %, ^, &, *).</div>';
             return;
         }
         
