@@ -13,7 +13,7 @@
 <body>
     <div class ="container">
         <form action ="" id="form">
-            <h1>Kingdom hearts KeyCaps</h1>
+            <h1>Kingdom hearts KeyCaps Form</h1>
             <div class = "card" style = "width: 18rem;">
                 <img src="https://www.royalkeycaps.com/wp-content/uploads/2024/03/kingdom-hearts-3-scaled.jpg" class="card-img-top" alt=" ">
                 <div class="card-body">
@@ -23,12 +23,12 @@
             <hr>
             <h2>First Name:</h2>
             <div class ="input-group">
-            <label for = "First Name" ></label>
+            <label for = "FirstName" ></label>
             <input type ="text" class="form-control" id = "First Name" name ="First Name">
             </div>
             <h2>Last Name:</h2>
             <div class ="input-group">
-            <label for = "Last Name" ></label>
+            <label for = "LastName" ></label>
             <input type ="text" class="form-control" id = "Last name" name ="Last Name">
             </div>
             <h2>Email:</h2>
@@ -43,15 +43,30 @@
             </div>
             <h2>Date of Birth:</h2>
             <div class ="input-group">
-            <label for = "Date of Birth" ></label>
-            <input type ="date" class="form-control" id = "Date of birth" name ="Date of birth">
+            <label for = "DateofBirth" ></label>
+            <input type ="date" class="form-control" id = "Dateofbirth" name ="Dateofbirth">
             </div>
     
-            <button type="submit">Register Now!</button>
+            <button onclick="submitForm()">Register Now!</button>
         </form>
+        <div id="message" class="input-group"></div>
+        <div class="alert alert-danger"></div>
     </div>
 <script>
- 
+    function SubmitForm() {
+        var FirstName = document.getElementById('firstName').elements;
+        var LastName = document.getElementById('LastName').elements;
+        var Email = document.getElementById('Email').elements;
+        var Password = document.getElementById('Password').elements;
+        var DateofBirth = document.getElementById('DateofBirth').elements;
+    
+        var specialChar = /[!@#$%^&*]/;
+        if (!specialChar.test(Password)){
+            document.getElementById('message').innerHTML = 'Password must contain at least one special character (! or @ or # or $ or % or ^ or & or *).';
+            return;
+        }
+    
+    }
 </script>
 
 
