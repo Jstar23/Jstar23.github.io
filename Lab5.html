@@ -65,7 +65,19 @@
             document.getElementById('message').innerHTML = 'Password must contain at least one special character (! or @ or # or $ or % or ^ or & or *).';
             return;
         }
-    
+        
+        var maskedPassword = '*'.repeat(Password.length);
+
+        userdata = {
+            FirstName: firstName,
+            LastName: LastName,
+            Email: Email,
+            Password: maskedPassword,
+            DateofBirth: DateofBirth
+        };
+
+        document.getElementById('message').innerHTML = ''
+
     }
 </script>
 
