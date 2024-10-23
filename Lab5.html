@@ -65,7 +65,7 @@
 
         var specialChar = /[!@#$%^&*]/;
         if (!specialChar.test(Password)){
-            document.getElementById('message').innerHTML = 'Password must contain at least one special character (! or @ or # or $ or % or ^ or & or *).';
+            document.getElementById('message').innerHTML = 'Password must contain at least one special character (!, @, #, $, %, ^, &, *).';
             return;
         }
         
@@ -79,7 +79,7 @@
             DateofBirth: DateofBirth
         };
 
-        document.getElementById('message').innerHTML = ''
+        document.getElementById('message').innerHTML = 'Form successful';
         console.log(userdata);
     });
  }
