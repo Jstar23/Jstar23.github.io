@@ -65,12 +65,12 @@
     document.getElementById('form').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        var FirstName = document.getElementById('FirstName').value;
-        var LastName = document.getElementById('LastName').value;
-        var Email = document.getElementById('Email').value;
-        var Password = document.getElementById('Password').value;
-        var DateOfBirth = document.getElementById('DateOfBirth').value;
-
+        var FirstName = document.getElementById('OutputFirstName').textContent;
+        var LastName = document.getElementById('OutputLastName').textContent;
+        var Email = document.getElementById('OutputEmail').textContent;
+        var Password = document.getElementById('OutputPassword').textContent;
+        var DateOfBirth = document.getElementById('OutputDateOfBirth').textContent;
+        
         
         var specialChar = /[!@#$%^&*]/;
         if (!specialChar.test(Password)) {
@@ -92,6 +92,13 @@
 
         
         document.getElementById('message').innerHTML = '<div class="alert alert-success">Form submission successful!</div>';
+
+        document.getElementById('form').style.display = 'none';
+        document.getElementById('outputBox').style.display = 'block';
+
+
+
+
 
         
         console.log('User Data:', userdata);
