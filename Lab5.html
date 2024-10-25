@@ -58,7 +58,10 @@
     <div type = "outputbox" class = "output-box">
         <h2>Submission</h2>
         <p><strong>First Name:</strong> <span id="outputFirstName"></span></p>
-
+        <p><strong>Last Name:</strong> <span id="outputLastName"></span></p>
+        <p><strong>Email:</strong> <span id="outputEmail"></span></p>
+        <p><strong>Password:</strong> <span id="outputPassword"></span></p>
+        <p><strong>Date of Birth:</strong> <span id="outputDateOfBirth"></span></p>
 
 
 <script>
@@ -70,7 +73,7 @@
         var FirstName = document.getElementById('OutputFirstName').textContent;
         var LastName = document.getElementById('OutputLastName').textContent;
         var Email = document.getElementById('OutputEmail').textContent;
-        var Password = document.getElementById('OutputPassword').textContent;
+        var Password = document.getElementById('OutputPassword').textContent = maskedPassword;
         var DateOfBirth = document.getElementById('OutputDateOfBirth').textContent;
         
         
@@ -79,9 +82,7 @@
             document.getElementById('message').innerHTML = '<div class="alert alert-danger">Password must contain at least one special character (!, @, #, $, %, ^, &, *).</div>';
             return;
         }
-        
-        
-        var maskedPassword = '*'.repeat(Password.length);
+    
 
         
         var userdata = {
