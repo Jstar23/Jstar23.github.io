@@ -91,9 +91,9 @@
 
         
         var AllowedEmails = ["gmail.com", "yahoo.com", "outlook.com"];
-        var emailDomain = submission.Email.split("@")[1];
-        if (!AllowedEmails.includes(emailDomain)) {
-            document.getElementById('message').innerHTML = '<div class="alert alert-danger">Please use a valid email domain (gmail, yahoo, or outlook).</div>';
+        var emails = submission.Email.split("@")[1];
+        if (!AllowedEmails.includes(emails)) {
+            document.getElementById('message').innerHTML = '<div class="alert alert-danger">Please use a valid email! (gmail, yahoo, or outlook).</div>';
             return;
         }
 
