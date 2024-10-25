@@ -66,9 +66,10 @@
 
 <script>
     document.getElementById('form').addEventListener('submit', function(event) {
+        event.preventDefault();
         document.getElementById('form').style.display = 'none';
         document.getElementById('outputBox').style.display = 'block';   
-        event.preventDefault();
+        
 
         var FirstName = document.getElementById('OutputFirstName').textContent;
         var LastName = document.getElementById('OutputLastName').textContent;
