@@ -65,49 +65,59 @@
     </div>
 
 <script>
-    function SubmitForm() {
+    function submitForm(event) {
         // Prevent default form submission behavior
         event.preventDefault();
         
-        // Get form values
-        var FirstName = document.getElementById('FirstName').value;
-        var LastName = document.getElementById('LastName').value;
-        var Email = document.getElementById('Email').value;
-        var Password = document.getElementById('Password').value;
-        var DateOfBirth = document.getElementById('DateOfBirth').value;
+        // Get form elements
+        var elements = document.getElementById("myForm").elements;
+        var elemsArr = Array.from(elements);
+        
+        // Create a submission object
+        var submission = {};
+        
+        // Iterate over form elements and log their values
+        elemsArr.forEach((element) => {
+            if (element.name) { // Ensure only form fields are processed
+                console.log(element.name + ": " + element.value);
+                submission[element.name] = element.value;
+            }
+        });
 
         // Check for special character in password
         var specialChar = /[!@#$%^&*]/;
-        if (!specialChar.test(Password)) {
+        if (!specialChar.test(submission.Password)) {
             document.getElementById('message').innerHTML = '<div class="alert alert-danger">Password must contain at least one special character (!, @, #, $, %, ^, &, *).</div>';
             return;
         }
 
+        // Allowed email domains
+        var AllowedEmails = ["gmail.com", "yahoo.com", "outlook.com"];
+        var Emails = submission.Email.split("@")[1];
+        if (!AllowedEmails.includes(Emails)) {
+            document.getElementById('message').innerHTML = '<div class="alert alert-danger">Please use a valid email domain (gmail, yahoo, or outlook).</div>';
+            return;
+        }
+
         // Mask password
-        var maskedPassword = '*'.repeat(Password.length);
+        var maskedPassword = '*'.repeat(submission.Password.length);
 
         // Display form values in output box
-        document.getElementById('outputFirstName').textContent = FirstName;
-        document.getElementById('outputLastName').textContent = LastName;
-        document.getElementById('outputEmail').textContent = Email;
+        document.getElementById('outputFirstName').textContent = submission.FirstName;
+        document.getElementById('outputLastName').textContent = submission.LastName;
+        document.getElementById('outputEmail').textContent = submission.Email;
         document.getElementById('outputPassword').textContent = maskedPassword;
-        document.getElementById('outputDateOfBirth').textContent = DateOfBirth;
+        document.getElementById('outputDateOfBirth').textContent = submission.DateOfBirth;
 
         // Success message
         document.getElementById('message').innerHTML = '<div class="alert alert-success">Form submission successful!</div>';
 
         // Hide form and show output box
-        document.getElementById('form').style.display = 'none';
+        document.getElementById('myForm').style.display = 'none';
         document.querySelector('.output-box').style.display = 'block';
 
         // Log data to console
-        console.log('User Data:', {
-            FirstName: FirstName,
-            LastName: LastName,
-            Email: Email,
-            Password: maskedPassword,
-            DateOfBirth: DateOfBirth
-        });
+        console.log('User Data:', submission);
     }
 </script>
 
