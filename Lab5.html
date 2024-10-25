@@ -50,7 +50,7 @@
                 <input type="text" class="form-control" id="DateOfBirth" name="DateOfBirth">
             </div>
     
-            <button type="button" onclick="SubmitForm()">Register Now!</button>
+            <button type="button" onclick="submitForm(event)">Register Now!</button>
             <p>Click to try again!</p>
         </form>
         <div id="message" class="mt-3"></div>
@@ -66,57 +66,55 @@
 
 <script>
     function submitForm(event) {
-        // Prevent default form submission behavior
         event.preventDefault();
         
-        // Get form elements
-        var elements = document.getElementById("myForm").elements;
+        
+        var elements = document.getElementById("form").elements;
         var elemsArr = Array.from(elements);
         
-        // Create a submission object
         var submission = {};
         
-        // Iterate over form elements and log their values
+       
         elemsArr.forEach((element) => {
-            if (element.name) { // Ensure only form fields are processed
+            if (element.name) {
                 console.log(element.name + ": " + element.value);
                 submission[element.name] = element.value;
             }
         });
 
-        // Check for special character in password
+        
         var specialChar = /[!@#$%^&*]/;
         if (!specialChar.test(submission.Password)) {
             document.getElementById('message').innerHTML = '<div class="alert alert-danger">Password must contain at least one special character (!, @, #, $, %, ^, &, *).</div>';
             return;
         }
 
-        // Allowed email domains
+        
         var AllowedEmails = ["gmail.com", "yahoo.com", "outlook.com"];
-        var Emails = submission.Email.split("@")[1];
-        if (!AllowedEmails.includes(Emails)) {
+        var emailDomain = submission.Email.split("@")[1];
+        if (!AllowedEmails.includes(emailDomain)) {
             document.getElementById('message').innerHTML = '<div class="alert alert-danger">Please use a valid email domain (gmail, yahoo, or outlook).</div>';
             return;
         }
 
-        // Mask password
+        
         var maskedPassword = '*'.repeat(submission.Password.length);
 
-        // Display form values in output box
+        
         document.getElementById('outputFirstName').textContent = submission.FirstName;
         document.getElementById('outputLastName').textContent = submission.LastName;
         document.getElementById('outputEmail').textContent = submission.Email;
         document.getElementById('outputPassword').textContent = maskedPassword;
         document.getElementById('outputDateOfBirth').textContent = submission.DateOfBirth;
 
-        // Success message
+        
         document.getElementById('message').innerHTML = '<div class="alert alert-success">Form submission successful!</div>';
 
-        // Hide form and show output box
-        document.getElementById('myForm').style.display = 'none';
+        
+        document.getElementById('form').style.display = 'none';
         document.querySelector('.output-box').style.display = 'block';
 
-        // Log data to console
+        
         console.log('User Data:', submission);
     }
 </script>
