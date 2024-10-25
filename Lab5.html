@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,96 +50,73 @@
                 <input type="text" class="form-control" id="DateOfBirth" name="DateOfBirth">
             </div>
     
-            <button onclick= SumbitForm()>Register Now!</button>
+            <button type="submit">Register Now!</button>
             <p>Click to try again!</p>
         </form>
         <div id="message" class="mt-3"></div>
     </div>
-    <div type = "outputbox" class = "output-box">
+    <div class="output-box">
         <h2>Submission</h2>
         <p><strong>First Name:</strong> <span id="outputFirstName"></span></p>
         <p><strong>Last Name:</strong> <span id="outputLastName"></span></p>
         <p><strong>Email:</strong> <span id="outputEmail"></span></p>
         <p><strong>Password:</strong> <span id="outputPassword"></span></p>
         <p><strong>Date of Birth:</strong> <span id="outputDateOfBirth"></span></p>
-
+    </div>
 
 <script>
-    function SubmitForm(){
     document.getElementById('form').addEventListener('submit', function(event) {
-    event.preventDefault();
-       
-    var FirstName = document.getElementById('FirstName').value;
-    var LastName = document.getElementById('LastName').value;
-    var Email = document.getElementById('Email').value;
-    var Password = document.getElementById('Password').value;
-    var DateOfBirth = document.getElementById('DateOfBirth').value;
+        event.preventDefault();
         
-    var specialChar = /[!@#$%^&*]/;
+        // Get form values
+        var FirstName = document.getElementById('FirstName').value;
+        var LastName = document.getElementById('LastName').value;
+        var Email = document.getElementById('Email').value;
+        var Password = document.getElementById('Password').value;
+        var DateOfBirth = document.getElementById('DateOfBirth').value;
+
+        // Check for special character in password
+        var specialChar = /[!@#$%^&*]/;
         if (!specialChar.test(Password)) {
             document.getElementById('message').innerHTML = '<div class="alert alert-danger">Password must contain at least one special character (!, @, #, $, %, ^, &, *).</div>';
             return;
         }
-    
-    
-    var maskedPassword = '*'.repeat(Password.length);
 
-    var FirstName = document.getElementById('OutputFirstName').textContent;
-    var LastName = document.getElementById('OutputLastName').textContent;
-    var Email = document.getElementById('OutputEmail').textContent;
-    var Password = document.getElementById('OutputPassword').textContent = maskedPassword;
-    var DateOfBirth = document.getElementById('OutputDateOfBirth').textContent;
-        
-        
-        
-        
-    document.getElementById('message').innerHTML = '<div class="alert alert-success">Form submission successful!</div>';
+        // Mask password
+        var maskedPassword = '*'.repeat(Password.length);
 
+        // Display form values in output box
+        document.getElementById('outputFirstName').textContent = FirstName;
+        document.getElementById('outputLastName').textContent = LastName;
+        document.getElementById('outputEmail').textContent = Email;
+        document.getElementById('outputPassword').textContent = maskedPassword;
+        document.getElementById('outputDateOfBirth').textContent = DateOfBirth;
 
-    document.getElementById('form').style.display = 'none';
-    document.getElementById('outputBox').style.display = 'block';
-     
+        // Success message
+        document.getElementById('message').innerHTML = '<div class="alert alert-success">Form submission successful!</div>';
 
+        // Hide form and show output box
+        document.getElementById('form').style.display = 'none';
+        document.querySelector('.output-box').style.display = 'block';
 
-        
-    console.log('User Data:', {
-        FirstName: FirstName,
-        LastName: LastName,
-        Email: Email,
-        Password: maskedPassword,
-         DateOfBirth: DateOfBirth
+        // Log data to console
+        console.log('User Data:', {
+            FirstName: FirstName,
+            LastName: LastName,
+            Email: Email,
+            Password: maskedPassword,
+            DateOfBirth: DateOfBirth
         });
     });
-};
-</script>
-</body>
-</html>
 </script>
 
-
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</head>
-
-
 
 
 
