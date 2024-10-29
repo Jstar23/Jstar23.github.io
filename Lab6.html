@@ -9,33 +9,41 @@
 
 </head>
 <script>
-function letsdisplay() {
-        
-    
-async function letsdisplay(){
+async function letsdisplay() {
+        await letsget();
+        await letspost();
+}
+async function letsget(){
     /* GET */
     const url = 'https://brianobruno.github.io/cats.json';
 
     const options = {
         method: 'GET'
     };
-    
+    try{
     const response = await fetch(url, options);
     const results = await response.text();
     const myObj = JSON.parse(result);
-    
+    myObj.sort((a,b) => a.factid-b.factid);
+    console.log(myObj);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
 }
-async function letsdisplay(){
+async function letspost(){
     /* GET */
     const url = 'https://brianobruno.github.io/cats.json';
 
     const options = {
         method: 'POST',
-        body:
-    JSON.stringify(myObj)
+        body: JSON.stringify(myObj)
         };
-    
+    try{
     const response = await fetch(url, options);
+    const results = await response.text();
+    }catch (error) {
+        console.error("Error fetching data:", error);
+    }  
     
 }
 
@@ -49,7 +57,7 @@ async function letsdisplay(){
         function (value){},
         function (error){}
     );
-}
+
 </script>
 
 
