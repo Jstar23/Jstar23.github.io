@@ -21,18 +21,11 @@ async function letsget(){
     const options = {
         method: 'GET'
     };
-    try {
+    
     const response = await fetch(url, options);
     const results = await response.text();
     const myObj = JSON.parse(result);
-    array.sort((a,b) => a.factid-b.factid);
     
-    const displayDiv = document.getElementById("Lab 6");
-    displayDiv.innerHTML = JSON.stringify(mObj, null, 2);
-    } catch (error) {
-        console.error(error);
-        document.writeln("Error");
-    }
 }
 async function letspost(){
     /* GET */
@@ -45,6 +38,7 @@ async function letspost(){
         };
     
     const response = await fetch(url, options);
+    
 }
 
 
