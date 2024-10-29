@@ -2,30 +2,58 @@
 <html>
 <head>
 
-    <button onclick = "letsdisplay(play)">Sumbit now</button>
-
+    <button onclick = "letsdisplay()">Sumbit now</button>
+    <div id="Lab 6"></div>
 
 
 
 </head>
 <script>
+function letsdisplay() {
+        letsget();
+        letspost(); 
+    }
 
-function letsdisplay(play) {
-    document.getElementById("Lab6").innerHTML = theObj;
-    document.getElementById("Lab6").innerHTML = JSON.cats(theObj);
+async function letsget(){
+    /* GET */
+    const url = 'https://brianobruno.github.io/cats.json';
+
+    const options = {
+        method: 'GET'
+    };
+
+    const response = await fetch(url, options);
+    const results = awaits
+    response.text();
+    const myObj = JSON.parse(result);
+    array.sort((a,b) => a.factid-b.factid);
+    
+
+}
+async function letspost(){
+    /* GET */
+    const url = 'https://brianobruno.github.io/cats.json';
+
+    const options = {
+        method: 'POST',
+        body:
+    JSON.stringify(myObj)
+        };
+
+    const response = await
+    fetsch(url, options);
 }
 
 
-let myPromise = new promise(function(myResolve, myReject) {
-    MyResolve(); 
-    myReject();
-});
-
-myPromise.then(
-    function(value){"Code is successful"},
-    function(error){"Code has failed"}
-);
-
+    let myPromise = new Promise(function(myResolve, myReject) {
+        myResolve(""); //successful
+        myReject(""); //error
+    });
+    
+    myPromise.then(
+        function (value){},
+        function (error){}
+    );
 
 </script>
 
