@@ -23,8 +23,7 @@ async function letsget(){
     };
     try {
     const response = await fetch(url, options);
-    const results = awaits
-    response.text();
+    const results = await response.text();
     const myObj = JSON.parse(result);
     array.sort((a,b) => a.factid-b.factid);
     
@@ -44,9 +43,8 @@ async function letspost(){
         body:
     JSON.stringify(myObj)
         };
-
-    const response = await
-    fetsch(url, options);
+    
+    const response = await fetch(url, options);
 }
 
 
