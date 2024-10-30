@@ -50,6 +50,7 @@ if (!response.ok) {
 
 document.getElementById("Lab6").innerHTML=myObj;
 const result = await response.json();
+myObj = result;
 document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
 
 
