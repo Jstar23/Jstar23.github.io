@@ -27,6 +27,11 @@ try {
     } catch(error) {
         console.error(error);
     }
+
+    document.getElementById("Lab6").innerHTML= myObj;
+    document.getElementById("Lab6").innerHTML =JSON.stringify(myObj);
+
+
 let myPromise = new Promise(function(myResolve, myReject) {
     myResolve();
     myReject();
