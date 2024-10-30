@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Facts</title>
+    <style>
+        table {
+            width: auto;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
     <h1>Please click the button to get a cat facts!</h1>
@@ -9,6 +17,7 @@
     <button onclick="display()">Submit</button>
     <div id="Lab6"></div>
     <img src="https://media.istockphoto.com/id/173600743/photo/sitting-cat.jpg?s=2048x2048&w=is&k=20&c=E81muYL-piAKNW87bDf1rUMgk67qDP3lfxZvep_ijyk=" alt ="Cat image" style="width:300px; height:auto";>
+
 </body>
 <script>
 async function display() {
@@ -32,7 +41,6 @@ async function display() {
     const result = await response.json();
     myObj =[result];
     document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
-    const myObj = JSON.parse(result)
 };
 
 </script>
