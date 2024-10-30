@@ -20,7 +20,7 @@
 </head>
 <body>
     <h1>Please click the button to get cat facts!</h1>
-    <button onclick="display()">Submit</button>
+    <button onclick="Getdisplay()">Submit</button>
     <div id="Lab6"></div>
     <img id="catImage" src="https://media.istockphoto.com/id/173600743/photo/sitting-cat.jpg?s=2048x2048&w=is&k=20&c=E81muYL-piAKNW87bDf1rUMgk67qDP3lfxZvep_ijyk=" alt="Cat image" style="width:300px; height:auto;">
     
@@ -36,47 +36,34 @@
     </table>
 
     <script>
-        async function display() {
-            const url = 'https://brianobruno.github.io/cats.json';
-            const options = {
-                method: 'GET',
-            };
-            
-            try {
-                const response = await fetch(url, options);
-                if (!response.ok) throw new Error("Failed to fetch data");
-
-                const result = await response.json(); 
-                const facts = result.facts
-                const sortfacts = result.facts.sort((a, b) => a.factId - b.factId);
-
-               
-                document.getElementById("catImage").src = result.catImage; 
-
-                
-                const tbody = document.querySelector('tbody');
-                tbody.innerHTML = '';
-
-                facts.forEach(fact => {
-                    const row = document.createElement('tr');
-                    const cellId = document.createElement('td');
-                    const cellFact = document.createElement('td');
-
-                    cellId.textContent = fact.factId;
-                    cellFact.textContent = fact.fact;
-
-                    row.appendChild(cellId);
-                    row.appendChild(cellFact);
-                    tbody.appendChild(row);
-                });
-
-                
-                document.getElementById("cattable").style.display = 'table';
-                
-            } catch (error) {
-                console.error(error);
-            }  
-        }
-    </script>
-</body>
+        async function Getdisplay() {
+          const url = "https://brianobruno.github.io/cats.json";
+          const response = await fetch(url);
+          const welp = await response.json();
+          welp.facts.sort((a, b) => a.factId - b.factId);
+      
+         
+          const tbody = document.querySelector('#cattable tbody');
+          tbody.innerHTML = ''; 
+      
+         
+          data.facts.forEach(fact => {
+            const row = document.createElement('tr');
+            const cellId = document.createElement('td');
+            const cellFact = document.createElement('td');
+      
+            cellId.textContent = fact.factId;
+            cellFact.textContent = fact.fact;
+      
+            row.appendChild(cellId);
+            row.appendChild(cellFact);
+            tbody.appendChild(row);
+          });
+      
+          
+          const table = document.getElementById('cattable');
+          table.style.display = 'table';
+        }    
+      </script>
+      
 </html>
