@@ -37,33 +37,34 @@
 
     <script>
         async function Getdisplay() {
-          const url = "https://brianobruno.github.io/cats.json";
-          const response = await fetch(url);
-          const welp = await response.json();
-          welp.facts.sort((a, b) => a.factId - b.factId);
-      
-         
-          const tbody = document.querySelector('#cattable tbody');
-          tbody.innerHTML = ''; 
-      
-         
-          data.facts.forEach(fact => {
-            const row = document.createElement('tr');
-            const cellId = document.createElement('td');
-            const cellFact = document.createElement('td');
-      
-            cellId.textContent = fact.factId;
-            cellFact.textContent = fact.fact;
-      
-            row.appendChild(cellId);
-            row.appendChild(cellFact);
-            tbody.appendChild(row);
-          });
-      
-          
-          const table = document.getElementById('cattable');
-          table.style.display = 'table';
-        }    
-      </script>
-      
+            const url = "https://brianobruno.github.io/cats.json";
+            const response = await fetch(url);
+            const data = await response.json(); // Make sure to use 'data' instead of 'welp'
+            data.facts.sort((a, b) => a.factId - b.factId);
+
+            const tbody = document.querySelector('#cattable tbody');
+            tbody.innerHTML = ''; // Clear existing rows
+
+            data.facts.forEach(fact => {
+                const row = document.createElement('tr');
+                const cellId = document.createElement('td');
+                const cellFact = document.createElement('td');
+
+                cellId.textContent = fact.factId;
+                cellFact.textContent = fact.fact;
+
+                row.appendChild(cellId);
+                row.appendChild(cellFact);
+                tbody.appendChild(row);
+            });
+
+            const table = document.getElementById('cattable');
+            table.style.display = 'table'; // Display the table
+
+            // Update the image with the URL returned from the API
+            const catImage = document.getElementById('catImage');
+            catImage.src = data.image; // Assuming 'data.image' contains the new image URL
+        }
+    </script>
+</body>
 </html>
