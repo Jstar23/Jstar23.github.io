@@ -52,8 +52,9 @@ if (!response.ok) {
 x = myObj[""];
 const result = await response.json();
 const myObj = JSON.parse(result);
-document.getElementById("Lab6").innerHTML=myObj;
 document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
+document.getElementById("Lab6").innerHTML=myObj;
+
 
 }
 </script>
