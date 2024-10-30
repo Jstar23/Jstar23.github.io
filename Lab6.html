@@ -42,7 +42,7 @@ async function letsdisplay() {
     
     const results = await response.json();
     console.log(results);
-    results.facts.sort((a, b) => a.factId- b.factId); 
+    myObj= results.facts.sort((a, b) => a.factId- b.factId); 
     document.getElementById("Lab6").innerHTML= JSON.stringify(myObj);
     document.getElementById(catimage).src = results.catPhoto;
     
