@@ -23,7 +23,6 @@ async function letsdisplay(url, options) {
 try {
     const response = await fetch(url, options);
     const results = await repsonse.json();
-    return results;
     console.log(results);
     } catch (error) {
         console.error(error);
