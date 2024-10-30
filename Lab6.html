@@ -24,7 +24,9 @@ if (!response.ok) {
     throw new Error("Failed to fetch");
     }
 
+myObj = [];
 const result = await response.json();
+document.getElementById("Lab6").innerHTML=myObj;
 document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
 
 
