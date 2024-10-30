@@ -14,38 +14,20 @@
     <img src="https://images.unsplash.com/photo-1531040630173-7cfb894c8eaa?q=80&w=1904&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img"width="200"length="100">
 </body>
 <script>
-async function letsdisplay() {
-    
-    const displayElement = document.getElementById("Lab6");
-
+async function letsdisplay(url, options) {
     /* GET */
     const url = 'https://brianobruno.github.io/cats.json';
     const options = {
         method: 'GET',
     };
-
-    try {
-        const response = await fetch(url, options);
-        console.log(response);
-
-        if (!response.ok) {
-            throw new Error("Request was not successful");
-        }
-
-        const results = await response.json();
-        console.log(results);
-
-        
-        results.facts.sort((a, b) => a.factId - b.factId);
-
-        
-        displayElement.innerHTML = JSON.stringify(results.facts, null, 2);
-
-        const imageElement = document.getElementById("catimage");
-        if (imageElement && results.catPhoto) {
-            imageElement.src = results.catPhoto;
-        }
+try {
+    const response = await fetch(url, options);
+    const results = await repsonse.json();
+    return results;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
+
+    
 }
+       
