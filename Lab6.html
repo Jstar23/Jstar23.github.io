@@ -30,7 +30,8 @@ async function display() {
 
     
     const result = await response.json();
-    document.getElementById("Lab6").innerHTML=JSON.stringify(result);
+    myObj =[result];
+    document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
     
 };
 
