@@ -22,17 +22,13 @@
         const options = {
             method: 'GET'
         };
-        try {
+
             const response = await fetch(url, options);
             const results = await response.text(); 
             myObj = JSON.parse(results); 
             myObj.sort((a, b) => a.factId - b.factId); 
-            console.log(myObj);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
+        
     }
-
     async function letspost() {
         /* POST */
         const url = 'https://brianobruno.github.io/cats.json';
@@ -41,13 +37,11 @@
             method: 'POST',
             body: JSON.stringify(myObj)
         };
-        try {
+        
             const response = await fetch(url, options);
             const results = await response.text(); 
             console.log(results); 
-        } catch (error) {
-            console.error("Error posting data:", error);
-        }
+      
     }
 
     let myPromise = new Promise(function(myResolve, myReject) {
@@ -56,12 +50,9 @@
     });
 
     myPromise.then(
-        function (value) {
-            console.log(value); 
-        },
-        function (error) {
-            console.error(error); 
-        }
+        function (value) {},
+        function (error) {}
+        
     );
 </script>
 </html>
