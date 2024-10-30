@@ -45,13 +45,11 @@ const options =
 }
 const response = await fetch(url, options);
 if (!response.ok) {
-    throw new Error("Failed to fetch"),
-    myObj = myJSON;
+    throw new Error("Failed to fetch");
     }
 
 document.getElementById("Lab6").innerHTML=myObj;
 const result = await response.json();
-const myObj = JSON.parse(result);
 document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
 
 
