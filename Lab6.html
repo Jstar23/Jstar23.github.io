@@ -7,14 +7,12 @@
     <h1>Please click the button to get a cat facts!</h1>
     
     <button onclick="letsdisplay()">Submit</button>
-    
-    <div id="Lab6"></div>
 </body>
 <script>
-    
 
 async function letsdisplay() {
-        /* GET */
+    document.getElementById("Lab6").innerHTML=myObj;
+    /* GET */
     const url = 'https://brianobruno.github.io/cats.json';
     const options = {
         method: 'GET',
@@ -29,6 +27,7 @@ async function letsdisplay() {
     
     const results = await response.json();
     console.log(results);
+    document.getElementById("Lab6").innerHTML= JSON.stringify(myObj);
     results.array.sort((a, b) => a.factId- b.factId); 
     Facts.document.getElementById("Lab6").innerHTML = '';
     document.getElementById(catimage).src = results.catPhoto;
