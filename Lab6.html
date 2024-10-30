@@ -24,7 +24,7 @@
     <div id="Lab6"></div>
     <img id="catImage" src="https://media.istockphoto.com/id/173600743/photo/sitting-cat.jpg?s=2048x2048&w=is&k=20&c=E81muYL-piAKNW87bDf1rUMgk67qDP3lfxZvep_ijyk=" alt="Cat image" style="width:300px; height:auto;">
     
-    <table class="table">
+    <table id="cattable">
         <thead>
             <tr>
                 <th>Fact ID</th>
@@ -47,9 +47,27 @@
                 if (!response.ok) throw new Error("Failed to fetch data")
                 
                 const result = await response.json(); 
+                const facts = result.facts.sort((a, b) => a.factId - b.factId);
+                document.getElementById("catImage").src = result.catImage;
+                
+                facts.forEach(fact => {
+                    const row = document.createElement('tr');
+                    const cellId = document.createElement('td');
+                    const cellFact = document.createElement('td');
+
+                    cellId.textContent = fact.factId;
+                    cellFact.textContent = fact.fact;
+
+                    row.appendChild(cellId);
+                    row.appendChild(cellFact);
+                    tbody.appendChild(row);
+                });
+                
+                
+                
                 myObj = [result];
                 document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
-
+                document.getElementById("cattable").style.display = 'table';
        
             } catch (error) {
                 console.error(error);
