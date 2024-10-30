@@ -6,12 +6,12 @@
 <body>
     <h1>Please click the button to get a cat facts!</h1>
     
-    <button onclick="letsdisplay()">Submit</button>
+    <button onclick="fetchdisplay()">Submit</button>
     <div id="Lab6"></div>
-    <img src="https://media.istockphoto.com/id/173600743/photo/sitting-cat.jpg?s=2048x2048&w=is&k=20&c=E81muYL-piAKNW87bDf1rUMgk67qDP3lfxZvep_ijyk=" alt ="Cat image">
+    <img src="https://media.istockphoto.com/id/173600743/photo/sitting-cat.jpg?s=2048x2048&w=is&k=20&c=E81muYL-piAKNW87bDf1rUMgk67qDP3lfxZvep_ijyk=" alt ="Cat image" style="width:300px; height:auto";>
 </body>
 <script>
-async function letsdisplay() {
+async function fetchdisplay() {
     const myJSON = {
     "facts": [
         {
