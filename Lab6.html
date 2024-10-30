@@ -12,6 +12,12 @@
 </body>
 <script>
 async function fetchdisplay() {
+    const url = 'https://brianobruno.github.io/cats.json';
+const options = 
+    {
+        method: 'GET',
+  };
+
     const myJSON = {
     "facts": [
         {
@@ -37,11 +43,12 @@ async function fetchdisplay() {
     ],
     "catPhoto": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg"
 }
-
+const response = await fetch(url, options);
+const result = await response.text();
 const myObj = JSON.parse(myJSON);
 x = myObj[""];
 document.getElementById("Lab6").innerHTML=myObj;
-document.getElementById("Lab6").innerHTML = JSON.stringify(myObj);
+document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
 
 }
 </script>
