@@ -29,10 +29,9 @@ async function letsdisplay() {
     
     const results = await response.json();
     console.log(results);
-    document.getElementById('Lab6').innerHTML = JSON.parse(results);
-    let afactid = results[0].id;
-    let bfactid = results[1].id;
-    results.sort((a, b) => afactid- bfactid);
+    results.array.sort((a, b) => a.factId- b.factId); 
+    document.getElementById('Lab6').innerHTML = JSON.stringify(results);
+   
     }
     catch(error){
         console.log(error);
