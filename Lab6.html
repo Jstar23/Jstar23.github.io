@@ -30,7 +30,8 @@ async function letsdisplay() {
     const results = await response.json();
     console.log(results);
     document.getElementById('Lab6').innerHTML = JSON.parse(results);
-    document.getElementById('Lab6').innerHTML = JSON.stringify(results);
+    let afactid = results[0].id;
+    let bfactid = results[1].id;
     results.sort((a, b) => afactid- bfactid);
     }
     catch(error){
