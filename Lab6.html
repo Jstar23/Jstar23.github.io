@@ -12,24 +12,28 @@
 </body>
 <script>
 async function display() {
+
     const url = 'https://brianobruno.github.io/cats.json';
-const options = 
+
+    const options = 
     {
         method: 'GET',
     };
     
 
-const response = await fetch(url, options);
-if (!response.ok) {
+    
+    const response = await fetch(url, options);
+
+    if (!response.ok) {
     throw new Error("Failed to fetch");
     }
 
-const result = await response.json();
-myObj = [];
-document.getElementById("Lab6").innerHTML=myObj;
-document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
 
+    const result = await response.json();
 
+    document.getElementById("Lab6").innerHTML=myObj;
+    document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
+    
 };
 
 </script>
