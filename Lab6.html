@@ -9,6 +9,7 @@
             width: auto;
             border-collapse: collapse;
             margin-top: 20px; 
+            display: none;
         }
         th, td {
             border: 1px solid #000;
@@ -31,7 +32,6 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Data will be populated here -->
         </tbody>
     </table>
 
@@ -59,7 +59,7 @@
                 // Populate the table with sorted data
                 result.forEach(fact => {
                     const row = document.createElement("tr");
-                    row.innerHTML = '<td>${fact.factId}</td><td>${fact.fact}</td>';
+                    row.innerHTML = row.innerHTML = `<td>${fact.factId}</td><td>${fact.fact}</td>`; 
                     tableBody.appendChild(row);
                 });
 
