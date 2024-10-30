@@ -27,8 +27,11 @@
             const results = await response.text(); 
             myObj = JSON.parse(results); 
             myObj.sort((a, b) => a.factId - b.factId); 
-        
-    }
+
+            
+    }    
+    
+    
     async function letspost() {
         /* POST */
         const url = 'https://brianobruno.github.io/cats.json';
@@ -41,6 +44,7 @@
             const response = await fetch(url, options);
             const results = await response.text(); 
             console.log(results); 
+            console.log(error);
       
     }
 
