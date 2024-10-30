@@ -49,11 +49,11 @@ if (!response.ok) {
     myObj = myJSON;
     }
 
-x = myObj[""];
+document.getElementById("Lab6").innerHTML=myObj;
 const result = await response.json();
 const myObj = JSON.parse(result);
 document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
-document.getElementById("Lab6").innerHTML=myObj;
+
 
 
 }
