@@ -9,6 +9,11 @@
             width: auto;
             border-collapse: collapse;
         }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -38,8 +43,10 @@ async function display() {
 
     
     const result = await response.json();
-    myObj =[result];
+    const myObj =[result];
+
     document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
+    document.getElementById("Lab6").innerHTML=JSON.parse(myObj);
     
 };
 
