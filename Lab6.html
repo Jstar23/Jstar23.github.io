@@ -21,34 +21,45 @@
     <button onclick="display()">Submit</button>
     <div id="Lab6"></div>
     <img src="https://media.istockphoto.com/id/173600743/photo/sitting-cat.jpg?s=2048x2048&w=is&k=20&c=E81muYL-piAKNW87bDf1rUMgk67qDP3lfxZvep_ijyk=" alt ="Cat image" style="width:300px; height:auto";>
-
+    <table class ="table">
+    <thead></thead>
+    <tbody></tbody>
+    </table>
 </body>
 <script>
 async function display() {
-
     const url = 'https://brianobruno.github.io/cats.json';
-
     const options = 
     {
         method: 'GET',
     };
-    
-
-    
-    const response = await fetch(url, options);
-
-    if (!response.ok) {
-    throw new Error("Failed to fetch");
-    }
-
-    
-    const result = await response.json();
+    try{
     const myObj =[result];
-
-    document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
-    document.getElementById("Lab6").innerHTML=JSON.parse(myObj);
+    const response = await fetch(url, options);
+    const result = await response.json();
+    result.sort((a, b) => a.factId - b.factId);
     
-};
+    const tablehead = table.querySelector("theader")
+    const tablebody = table.querySelector("tbody");
+    const catImage = document.getElementById("catImage");
+
+    tablehead.innerHTML ='';
+    tablebody.innerHTML ='';
+
+    results.array.forEach(facts => {
+        const row = document.createElement("tr");
+        row.innerHTML = '';
+        tableBody.appendChild(row);
+    });
+    
+    } catch (error) {
+    console.error("Error:", error);
+    }  
+    
+}
+
+
+display("./data.json", document.querySelector("table"));
 
 </script>
 </html>
