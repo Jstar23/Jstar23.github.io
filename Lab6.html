@@ -21,7 +21,7 @@ async function letsdisplay() {
     };
     try{
     const response = await fetch(url, options);
-
+    console.log(response);
     if(!response.ok){
         throw new Error("Not Sucessful");
     }
@@ -29,11 +29,13 @@ async function letsdisplay() {
     
     const results = await response.json();
     console.log(results);
-    document.getElementById('Lab6').innerHTML = JSON.stringify(results);
     results.array.sort((a, b) => a.factId- b.factId); 
+    Facts.document.getElementById("Lab6").innerHTML = '';
+    document.getElementById(catimage).src = results.catPhoto;
+    
     }
     catch(error){
-        console.log(error);
+    console.log(error);
      
     }    
 }
