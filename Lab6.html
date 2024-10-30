@@ -11,40 +11,27 @@
     
 
 async function letsdisplay() {
-       
-    async function fetchfacts() {
         /* GET */
     const url = 'https://brianobruno.github.io/cats.json';
     const options = {
         method: 'GET',
     };
+    try{
     const response = await fetch(url, options);
-    const results = await response.JSON(); 
-    myObj = JSON.parse(results);   
+
+    if(!response.ok){
+        throw new Error("Not Sucessful");
+    }
+    
+    
+    const results = await response.json(); 
+    console.log(results);
+    document.getElementById('Lab6').innerHTML = JSON.stringify(results);
+    }
+    catch(error){
+        console.log(error);
+     
     }    
-async function postData() {
-const url = 'https://brianobruno.github.io/cats.json';
-const options = 
-    {
-    method: 'POST',
-	body :  
-JSON.stringify(someObject) 
-    };
-const response = await fetch(url, options);
-} 
-
-
-    let myPromise = new Promise(function(myResolve, myReject) {
-        myResolve("Successful"); // successful
-        myReject("Failed"); // error
-    });
-
-    myPromise.then(
-        function (value) {},
-        function (error) {}
-        
-    );
-    document.getElementById("Lab6").innerHTML=JSON.stringify(myObj)
-};
+}
 </script>
 </html>
