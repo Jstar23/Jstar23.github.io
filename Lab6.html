@@ -6,18 +6,18 @@
 <body>
     <h1>Please click the button to get a cat facts!</h1>
     
-    <button onclick="fetchdisplay()">Submit</button>
+    <button onclick="display()">Submit</button>
     <div id="Lab6"></div>
     <img src="https://media.istockphoto.com/id/173600743/photo/sitting-cat.jpg?s=2048x2048&w=is&k=20&c=E81muYL-piAKNW87bDf1rUMgk67qDP3lfxZvep_ijyk=" alt ="Cat image" style="width:300px; height:auto";>
 </body>
 <script>
-async function fetchdisplay() {
+async function display() {
     const url = 'https://brianobruno.github.io/cats.json';
 const options = 
     {
         method: 'GET',
   };
-
+    
     const myJSON = {
     "facts": [
         {
@@ -44,8 +44,12 @@ const options =
     "catPhoto": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg"
 }
 const response = await fetch(url, options);
-const result = await response.text();
-const myObj = JSON.parse(myJSON);
+if (!response.ok) {
+    throw new Error("Failed to fetch"),
+    myObj = myJSON;
+    }
+const result = await response.json();
+const myObj = JSON.parse(result);
 x = myObj[""];
 document.getElementById("Lab6").innerHTML=myObj;
 document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
