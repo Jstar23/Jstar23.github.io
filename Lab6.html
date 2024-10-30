@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
             width: auto;
             border-collapse: collapse;
             margin-top: 20px; 
-            display: none;
+            display: none; /* Initially hidden */
         }
         th, td {
             border: 1px solid #000;
@@ -34,8 +34,8 @@
         <tbody>
         </tbody>
     </table>
-</body>
-<script>
+
+    <script>
         async function display() {
             const url = 'https://brianobruno.github.io/cats.json';
             const options = {
@@ -44,12 +44,18 @@
             
             try {
                 const response = await fetch(url, options);
-                if (!response.ok) throw new Error("Failed to fetch data")
-                
+                if (!response.ok) throw new Error("Failed to fetch data");
+
                 const result = await response.json(); 
                 const facts = result.facts.sort((a, b) => a.factId - b.factId);
-                document.getElementById("catImage").src = result.catImage;
-                
+
+                // Corrected line to set the image source
+                document.getElementById("catImage").src = result.catImage; 
+
+                // Clear previous table rows
+                const tbody = document.querySelector('#cattable tbody');
+                tbody.innerHTML = '';
+
                 facts.forEach(fact => {
                     const row = document.createElement('tr');
                     const cellId = document.createElement('td');
@@ -62,16 +68,14 @@
                     row.appendChild(cellFact);
                     tbody.appendChild(row);
                 });
-                
-                
-                
-                
+
+                // Show the table after populating it
                 document.getElementById("cattable").style.display = 'table';
-       
+                
             } catch (error) {
                 console.error(error);
-                
+            }  
         }
-    }
-</script>
+    </script>
+</body>
 </html>
