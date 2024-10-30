@@ -38,6 +38,7 @@ async function display() {
     const response = await fetch(url, options);
     const result = await response.json();
     result.sort((a, b) => a.factId - b.factId);
+    document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
     
     const tablehead = table.querySelector("theader")
     const tablebody = table.querySelector("tbody");
@@ -57,9 +58,5 @@ async function display() {
     }  
     
 }
-
-
-display("./data.json", document.querySelector("table"));
-
 </script>
 </html>
