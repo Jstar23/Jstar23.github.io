@@ -10,7 +10,6 @@
 </body>
 <script>
 async function letsdisplay() {
-    myObj =[];
     document.getElementById("Lab6").innerHTML=myObj;
     /* GET */
     const url = 'https://brianobruno.github.io/cats.json';
@@ -28,7 +27,6 @@ async function letsdisplay() {
     const results = await response.json();
     console.log(results);
     myObj= results.all.sort((a, b) => a.factId- b.factId); 
-    document.getElementById("Lab6"),innerHTML=myObj;
     document.getElementById("Lab6").innerHTML= JSON.stringify(myObj);
     document.getElementById(catimage).src = results.catPhoto;
     
