@@ -24,10 +24,18 @@ try {
     const response = await fetch(url, options);
     const results = await repsonse.json();
     console.log(results);
-    } catch (error) {
+    } catch(error) {
         console.error(error);
     }
+let myPromise = new Promise(function(myResolve, myReject) {
+    myResolve();
+    myReject();
 
+});
+myPromise.then(
+function(value) {},
+function(error) {}
+);
     
 }
        
