@@ -9,7 +9,6 @@
     <button onclick="letsdisplay()">Submit</button>
 </body>
 <script>
-
 async function letsdisplay() {
     myObj =[],
     document.getElementById("Lab6").innerHTML=myObj;
@@ -29,8 +28,8 @@ async function letsdisplay() {
     const results = await response.json();
     console.log(results);
     document.getElementById("Lab6").innerHTML=myObj;
-    document.getElementById("Lab6").innerHTML= JSON.stringify(myObj);
     results.array.sort((a, b) => a.factId- b.factId); 
+    document.getElementById("Lab6").innerHTML= JSON.stringify(myObj);
     document.getElementById(catimage).src = results.catPhoto;
     
     }
