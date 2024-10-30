@@ -64,6 +64,8 @@
                     tableBody.appendChild(row);
                 });
 
+                myObj = [results];
+                document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
                 
                 catImage.src = result[0]?.imageUrl 
                 table.style.display = 'table'
