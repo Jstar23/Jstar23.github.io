@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
         table {
             width: auto;
             border-collapse: collapse;
+            margin-top: 20px; 
         }
         th, td {
             border: 1px solid #000;
@@ -17,46 +18,59 @@
     </style>
 </head>
 <body>
-    <h1>Please click the button to get a cat facts!</h1>
+    <h1>Please click the button to get cat facts!</h1>
     <button onclick="display()">Submit</button>
     <div id="Lab6"></div>
-    <img src="https://media.istockphoto.com/id/173600743/photo/sitting-cat.jpg?s=2048x2048&w=is&k=20&c=E81muYL-piAKNW87bDf1rUMgk67qDP3lfxZvep_ijyk=" alt ="Cat image" style="width:300px; height:auto";>
-    <table class ="table">
-    <thead></thead>
-    <tbody></tbody>
+    <img id="catImage" src="https://media.istockphoto.com/id/173600743/photo/sitting-cat.jpg?s=2048x2048&w=is&k=20&c=E81muYL-piAKNW87bDf1rUMgk67qDP3lfxZvep_ijyk=" alt="Cat image" style="width:300px; height:auto;">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fact ID</th>
+                <th>Fact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
     </table>
-</body>
+
 <script>
-async function display() {
-    const url = 'https://brianobruno.github.io/cats.json';
-    const options = 
-    {
-        method: 'GET',
-    };
-    try{
-    const myObj =[result];
-    const response = await fetch(url, options);
-    const result = await response.json();
-    result.sort((a, b) => a.factId - b.factId);
-    document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
-    
-    const tablehead = table.querySelector("theader")
-    const tablebody = table.querySelector("tbody");
-    const catImage = document.getElementById("catImage");
+        async function display() {
+            const url = 'https://brianobruno.github.io/cats.json';
+            const options = {
+                method: 'GET',
+            };
+            
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) throw new Error("Failed to fetch data");
 
-    tablehead.innerHTML ='';
-    tablebody.innerHTML ='';
+                const result = await response.json();
+                result.sort((a, b) => a.factId - b.factId); 
 
-    results.array.forEach(facts => {
-        const row = document.createElement("tr");
-        row.innerHTML = '';
-        tableBody.appendChild(row);
-    });
-    
-    } catch (error) {
-    console.error("Error:", error);
-    }  
-    
-}
+                
+                const tableBody = document.querySelector("tbody");
+                const catImage = document.getElementById("catImage");
+
+                
+                tableBody.innerHTML = '';
+
+                // Populate the table with sorted data
+                result.forEach(fact => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `<td>${fact.factId}</td><td>${fact.fact}</td>`;
+                    tableBody.appendChild(row);
+                });
+
+                
+                catImage.src = result[0]?.imageUrl 
+
+            } catch (error) {
+                console.error(error);
+                
+        }
+    }
 </script>
+</body>
 </html>
