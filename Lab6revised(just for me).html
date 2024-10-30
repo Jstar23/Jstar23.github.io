@@ -35,22 +35,13 @@ async function letsdisplay() {
     try{
     const response = await fetch(url, options);
     console.log(response);
-    if(!response.ok){
-        throw new Error("Not Sucessful");
-    }
-    
     
     const results = await response.json();
     console.log(results);
     results.facts.sort((a, b) => a.factId- b.factId); 
-    document.getElementById("Lab6").innerHTML= JSON.stringify(myObj);
-    document.getElementById(catimage).src = results.catPhoto;
-    
     }
     catch(error){
     console.log(error);
      
     }    
 }
-</script>
-</html>
