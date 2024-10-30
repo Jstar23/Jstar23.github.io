@@ -28,9 +28,8 @@ async function display() {
     throw new Error("Failed to fetch");
     }
 
-    document.getElementById("Lab6").innerHTML= result;
+    
     const result = await response.json();
-
     document.getElementById("Lab6").innerHTML=JSON.stringify(result);
     
 };
