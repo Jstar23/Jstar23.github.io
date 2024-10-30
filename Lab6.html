@@ -5,48 +5,28 @@
 </head>
 <body>
     <button onclick="letsdisplay()">Submit</button>
-    <div id="Lab 6"></div>
+    <div id="Lab6"></div>
 </body>
 <script>
-    let myObj = []; 
+    
 
     async function letsdisplay() {
         await letsget();
-        await letspost();
+        document.getElementById("Lab6").innerHTML=JSON.stringify(myObj)
     }
 
     async function letsget() {
         /* GET */
         const url = 'https://brianobruno.github.io/cats.json';
-
         const options = {
             method: 'GET'
         };
-
-            const response = await fetch(url, options);
-            const results = await response.text(); 
-            myObj = JSON.parse(results); 
-            myObj.sort((a, b) => a.factId - b.factId); 
-
-            
-    }    
-    
-    
-    async function letspost() {
-        /* POST */
-        const url = 'https://brianobruno.github.io/cats.json';
-
-        const options = {
-            method: 'POST',
-            body: JSON.stringify(myObj)
-        };
-        
-            const response = await fetch(url, options);
-            const results = await response.text(); 
-            console.log(results); 
-            console.log(error);
       
-    }
+            const response = await fetch(url, options);
+            const results = await response.JSON(); 
+            myObj = JSON.parse(results); 
+            myObj.sort((a, b) => a.factId - b.factId);   
+    }    
 
     let myPromise = new Promise(function(myResolve, myReject) {
         myResolve("Successful"); // successful
