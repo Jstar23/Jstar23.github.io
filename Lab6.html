@@ -48,6 +48,7 @@
 
                 const result = await response.json();
                 result.sort((a, b) => a.factId - b.factId); 
+                document.getElementById("Lab6").innerHTML=JSON.stringify(result);
 
                 const table = document.querySelector("table");
                 table.classList.add("visible");
@@ -64,8 +65,7 @@
                     tableBody.appendChild(row);
                 });
 
-                myObj = [result];
-                document.getElementById("Lab6").innerHTML=JSON.stringify(myObj);
+                
                 
                 catImage.src = result[0]?.imageUrl 
                 table.style.display = 'table'
