@@ -47,13 +47,14 @@
                 if (!response.ok) throw new Error("Failed to fetch data");
 
                 const result = await response.json(); 
-                const facts = result.facts.sort((a, b) => a.factId - b.factId);
+                const facts = result.facts
+                const sortfacts = result.facts.sort((a, b) => a.factId - b.factId);
 
-                // Corrected line to set the image source
+               
                 document.getElementById("catImage").src = result.catImage; 
 
-                // Clear previous table rows
-                const tbody = document.querySelector('#cattable tbody');
+                
+                const tbody = document.querySelector('tbody');
                 tbody.innerHTML = '';
 
                 facts.forEach(fact => {
@@ -69,7 +70,7 @@
                     tbody.appendChild(row);
                 });
 
-                // Show the table after populating it
+                
                 document.getElementById("cattable").style.display = 'table';
                 
             } catch (error) {
