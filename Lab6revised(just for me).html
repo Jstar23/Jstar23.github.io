@@ -7,8 +7,7 @@
 </head>
 <body>
     <h1>Please click the button to get cat facts!</h1>
-    <img src="https://images.unsplash.com/photo-1531040630173-7cfb894c8eaa?q=80&w=1904&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" width="200" height="100">
-    <button type="button" onclick="getdata()">click here!</button>
+    <button type="button" onclick="getdata()">Click Here!</button>
     <div id="Lab6"></div>
 
     <script>
@@ -21,38 +20,52 @@
             const response = await fetch(url, options);
             const data = await response.json(); 
             console.log(data);
+
             const obj = data.facts;
-            console.log(obj,facts[0].text);
-            console.log(obj,facts[1].text);
-            console.log(obj,facts[2].text);
-            console.log(obj,facts[3].text);
-            console.log(obj,facts[4].text);
 
+            // Log each fact's text
+            console.log(obj[0].text);
+            console.log(obj[1].text);
+            console.log(obj[2].text);
+            console.log(obj[3].text);
+            console.log(obj[4].text);
+
+            // Alternative way to log facts
             obj.forEach(fact => {
-            console.log(fact.text);
-        });
+                console.log(fact.text);
+            });
 
-            data.facts.sort((a, b) => a.factId - b.factId);
+            // Sort the facts based on factId
+            obj.sort((a, b) => a.factId - b.factId);
 
+            // Start building the HTML for the table
             let tableHTML = `
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Fact ID</th>
-                                        <th>Fact</th>
-                                    </tr>
-                                 </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                            `;
-            
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fact ID</th>
+                            <th>Fact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
 
+            // Loop through each fact and create a row in the table
+            obj.forEach(fact => {
+                tableHTML += `<tr><td>${fact.factId}</td><td>${fact.text}</td></tr>`;
+            });
+
+            tableHTML += `
+                    </tbody>
+                </table>
+            `; // Close the table
+
+            // Update the Lab6 div with the complete table HTML
             document.getElementById("Lab6").innerHTML = tableHTML;
-            document.getElementById("Lab6").innerHTML = JSON.stringify(data);
 
         } catch (error) {
             console.error("Error fetching data:", error);
+            document.getElementById("Lab6").innerHTML = `<p>Error fetching data: ${error.message}</p>`;
         }
     }
     </script>
