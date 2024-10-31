@@ -18,16 +18,16 @@
             method: 'GET',
         };
         try {
-            const response = await fetch(url, options); // Make the fetch request
-            const results = await response.json(); // Parse JSON response
+            const response = await fetch(url, options); 
+            const results = await response.json(); 
             console.log(results);
 
-            // Check if `facts` exists and sort it if needed
-            if (results.facts) {
-                results.facts.sort((a, b) => a.factId - b.factId);
-            }
             
-            // Display results in the HTML
+            
+            results.facts.sort((a, b) => a.factId - b.factId);
+            
+            
+            
             document.getElementById("Lab6").innerHTML = JSON.stringify(results, null, 2);
 
         } catch (error) {
