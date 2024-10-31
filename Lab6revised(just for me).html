@@ -25,11 +25,11 @@ try {
     const results = await repsonse.json();
     const data = JSON.parse(results);
     console.log(results);
+    document.getElementById("Lab6").innerHTML = JSON.stringify(results);
     } catch(error) {
         console.error(error);
     }
 
-    const myObj = 
     document.getElementById("Lab6").innerHTML= myObj;
     document.getElementById("Lab6").innerHTML =JSON.stringify(myObj);
 
