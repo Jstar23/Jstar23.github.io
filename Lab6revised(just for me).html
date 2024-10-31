@@ -21,14 +21,13 @@ async function letsdisplay() {
         method: 'GET',
     };
 try {
-    const response = await fetch(url, options);
-    const results = await repsonse.json();
-    
-    console.log(results);
-  
+const response = await fetch(url, options);
+const results = await response.json(); 
+console.log(results);
 
-    document.getElementById("Lab6").innerHTML= myObj;
-    document.getElementById("Lab6").innerHTML =JSON.stringify(myObj);
+
+document.getElementById("Lab6").innerHTML = JSON.stringify(results); 
+
 
 
 let myPromise = new Promise(function(myResolve, myReject) {
