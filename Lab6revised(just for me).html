@@ -22,11 +22,10 @@ async function getdata(url, options) {
         method: 'GET',
     };
 try {
-const response = await fetch();
-const results = await response.json(); 
+const results = await response.json();
 console.log(results);
 
-
+results.facts.sort((a, b) => a.factId - b.factId);
 document.getElementById("Lab6").innerHTML = JSON.stringify(results); 
 
 
