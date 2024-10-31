@@ -24,8 +24,8 @@ try {
     const response = await fetch(url, options);
     const results = await repsonse.json();
     const data = JSON.parse(results);
-    console.log(results);
     document.getElementById("Lab6").innerHTML = JSON.stringify(results);
+    console.log(results);
     } catch(error) {
         console.error(error);
         document.getElementById("Lab6").innerHTML = "An error occurred.";
