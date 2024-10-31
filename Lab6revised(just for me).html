@@ -22,7 +22,7 @@ async function letsdisplay() {
     };
 try {
     const response = await fetch(url, options);
-    const results = await repsonse.json();
+    const results = await repsonse.text();
     document.getElementById("Lab6").innerHTML = JSON.stringify(results);
     console.log(results);
     } catch(error) {
