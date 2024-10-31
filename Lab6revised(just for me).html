@@ -24,12 +24,18 @@
 
             data.facts.sort((a, b) => a.factId - b.factId);
 
-           let tableHTML = <table>
-                            <thead>
-                                <th>Fact ID</th>
-                                <th>Fact</th>
-                                </thead>
-                            </table> 
+            let tableHTML = `
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fact ID</th>
+                                        <th>Fact</th>
+                                    </tr>
+                                 </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            `;
             
 
             document.getElementById("Lab6").innerHTML = tableHTML;
