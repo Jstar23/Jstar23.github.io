@@ -88,6 +88,10 @@
 
             
             document.getElementById("Lab6").innerHTML = tableHTML;
+
+            const catPhoto = data.catPhoto; // Extract catPhoto URL
+            const imgElement = document.getElementById("catImage");
+            imgElement.src = catPhoto;
             
 
         } catch (error) {
