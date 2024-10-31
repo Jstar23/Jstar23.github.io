@@ -23,6 +23,13 @@
             console.log(data);
 
             data.facts.sort((a, b) => a.factId - b.factId);
+
+            <table>
+                <thead>
+                <th>Fact ID</th>
+                <th>Fact</th>
+                </thead>
+            </table> 
             
 
             document.getElementById("Lab6").innerHTML = tableHTML;
