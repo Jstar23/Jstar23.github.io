@@ -18,11 +18,10 @@
             method: 'GET',
         };
         try {
-            const response = await fetch(url, options); 
             const results = await response.json(); 
             console.log(results);
 
-            results.facts.sort((a, b) => a.factId - b.factId);
+            results.facts1.sort((a, b) => a.factId - b.factId);
             
             
             
