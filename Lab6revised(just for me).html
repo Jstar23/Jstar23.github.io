@@ -24,8 +24,13 @@
 
             data.facts.sort((a, b) => a.factId1 - b.factId2);
             
-            
-            
+            for (const fact of data.facts) {
+                tableHTML += `<tr><td>${fact.factId}</td><td>${fact.text}</td></tr>`;
+            }
+
+            tableHTML += '</table>'
+
+            document.getElementById("Lab6").innerHTML = tableHTML;
             document.getElementById("Lab6").innerHTML = JSON.stringify(data);
 
         } catch (error) {
