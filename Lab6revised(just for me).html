@@ -28,6 +28,10 @@
             console.log(obj,facts[3].text);
             console.log(obj,facts[4].text);
 
+            obj.forEach(fact => {
+            console.log(fact.text);
+        });
+
             data.facts.sort((a, b) => a.factId - b.factId);
 
             let tableHTML = `
