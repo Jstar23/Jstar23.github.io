@@ -11,15 +11,16 @@
     <button type="button" onclick="getdata()">click here!</button>
     <div id="Lab6"></div>
 
-    <script>
+<script>
     async function getdata() {
         const url = 'https://brianobruno.github.io/cats.json';
         const options = {
             method: 'GET',
         };
         try {
-            const results = await response.json(); 
-            console.log(results);
+            const response = await fetch(url, options);
+            const data = await response.json(); 
+            console.log(data);
 
             results.facts1.sort((a, b) => a.factId - b.factId);
             
@@ -31,6 +32,6 @@
             console.error("Error fetching data:", error);
         }
     }
-    </script>
+</script>
 </body>
 </html>
