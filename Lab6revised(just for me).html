@@ -16,18 +16,20 @@
 <script>
 async function letsdisplay(url, options) {
     /* GET */
-    const url = 'https://brianobruno.github.io/cats.json';
+    const url = 'https://brianobruno.github.io/cats.json/users';
     const options = {
         method: 'GET',
     };
 try {
     const response = await fetch(url, options);
     const results = await repsonse.json();
+    const data = JSON.parse(results);
     console.log(results);
     } catch(error) {
         console.error(error);
     }
 
+    const myObj = 
     document.getElementById("Lab6").innerHTML= myObj;
     document.getElementById("Lab6").innerHTML =JSON.stringify(myObj);
 
