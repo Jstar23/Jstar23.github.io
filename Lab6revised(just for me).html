@@ -4,10 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
 <body>
     <h1>Please click the button to get cat facts!</h1>
     <button type="button" onclick="getdata()">Click Here!</button>
+    <img 
     <div id="Lab6"></div>
 
     <script>
@@ -23,22 +49,22 @@
 
             const obj = data.facts;
 
-            // Log each fact's text
+            
             console.log(obj[0].text);
             console.log(obj[1].text);
             console.log(obj[2].text);
             console.log(obj[3].text);
             console.log(obj[4].text);
 
-            // Alternative way to log facts
+            
             obj.forEach(fact => {
                 console.log(fact.text);
             });
 
-            // Sort the facts based on factId
+            
             obj.sort((a, b) => a.factId - b.factId);
 
-            // Start building the HTML for the table
+            
             let tableHTML = `
                 <table>
                     <thead>
@@ -50,7 +76,7 @@
                     <tbody>
             `;
 
-            // Loop through each fact and create a row in the table
+            
             obj.forEach(fact => {
                 tableHTML += `<tr><td>${fact.factId}</td><td>${fact.text}</td></tr>`;
             });
@@ -58,9 +84,9 @@
             tableHTML += `
                     </tbody>
                 </table>
-            `; // Close the table
+            `; 
 
-            // Update the Lab6 div with the complete table HTML
+            
             document.getElementById("Lab6").innerHTML = tableHTML;
 
         } catch (error) {
