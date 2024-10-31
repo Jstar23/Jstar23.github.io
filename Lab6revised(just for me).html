@@ -18,11 +18,11 @@ async function letsdisplay() {
     /* GET */
     const url = 'https://brianobruno.github.io/cats.json/users';
     const options = {
-        method: 'GET',
+        method: "GET",
     };
 try {
     const response = await fetch(url, options);
-    const results = await repsonse.text();
+    const results = await response.json();
     document.getElementById("Lab6").innerHTML = JSON.stringify(results);
     console.log(results);
     } catch(error) {
