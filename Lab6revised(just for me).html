@@ -24,6 +24,7 @@
 
             data.facts.sort((a, b) => a.factId1 - b.factId2);
             
+            let tableHTML = '<table>'
             for (const fact of data.facts) {
                 tableHTML += `<tr><td>${fact.factId}</td><td>${fact.text}</td></tr>`;
             }
