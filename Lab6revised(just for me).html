@@ -12,26 +12,36 @@
     <button onclick="Getdisplay()">Submit</button>
     <div id="Lab6"></div>
     <img src="https://images.unsplash.com/photo-1531040630173-7cfb894c8eaa?q=80&w=1904&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img"width="200"length="100">
-
+</body>
 <script>
 async function letsdisplay() {
     /* GET */
     const url = 'https://brianobruno.github.io/cats.json/users';
     const options = {
-        method: "GET",
+        method: 'GET',
     };
 try {
     const response = await fetch(url, options);
-    const results = await response.text();
-    const myObj = JSON.parse(results);
-    document.getElementById("Lab6").innerHTML = JSON.stringify(results);
+    const results = await repsonse.json();
+    
     console.log(results);
-    } catch(error) {
-        console.error(error);
-        document.getElementById("Lab6").innerHTML = "An error occurred.";
-    }
+  
 
+    document.getElementById("Lab6").innerHTML= myObj;
+    document.getElementById("Lab6").innerHTML =JSON.stringify(myObj);
+
+
+let myPromise = new Promise(function(myResolve, myReject) {
+    myResolve();
+    myReject();
+
+});
+myPromise.then(
+function(value) {},
+function(error) {}
+);
+} catch(error) {
+        console.error(error);
+    }
 }
-</script> 
-</body> 
-</html>   
+       
