@@ -22,7 +22,8 @@ async function letsdisplay() {
     };
 try {
     const response = await fetch(url, options);
-    const results = await response.json();
+    const results = await response.text();
+    const myObj = JSON.parse(results);
     document.getElementById("Lab6").innerHTML = JSON.stringify(results);
     console.log(results);
     } catch(error) {
