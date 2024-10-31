@@ -21,6 +21,11 @@
             const response = await fetch(url, options);
             const data = await response.json(); 
             console.log(data);
+            console.log(obj,facts[0].text);
+            console.log(obj,facts[1].text);
+            console.log(obj,facts[2].text);
+            console.log(obj,facts[3].text);
+            console.log(obj,facts[4].text);
 
             data.facts.sort((a, b) => a.factId - b.factId);
 
