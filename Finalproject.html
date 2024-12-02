@@ -24,17 +24,19 @@
     <div class="row" id="joke-list"></div>
     <hr>
     <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-primary" type="button">Button</button>
+        <button class="btn btn-primary" type="button" onclick="getJoke()">Hit me if you want to joke</button>
     </div>
 </div>
 
 
 <script>
+ async function getJoke() {
+        const url = 'https://v2.jokeapi.dev/joke/Any';
+        const options = {
+            method: 'GET',
+        };
 
- const url = "https://v2.jokeapi.dev/joke/Any"
-
-
-
+    }
 
 
 </script>
