@@ -110,13 +110,15 @@
         }
 }
 
-    function showCategories() {
-    location.reload(); 
+function showCategories() {
+    document.getElementById('search-section').classList.add('hidden');
+    document.getElementById('categories-section').classList.remove('hidden');
 }
 
 
+
 async function searchJokes() {
-    const term = document.getElementById('search-term').value; 
+    const term = document.getElementById('term').value;
     const url = `https://v2.jokeapi.dev/joke/Any?contains=${term}`;
      try {
             const response = await fetch(url); 
