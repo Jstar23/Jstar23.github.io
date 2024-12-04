@@ -103,11 +103,21 @@
     }
 
     function showCategories() {
-    location.reload(); // Reload the page
-}
+    location.reload(); 
+    }
 
-    async function searchJokes() {
+    function showSearch() {
+    location.reload();
+    }
     
+    async function searchJokes() {
+        const term = document.getElementById('search-term').value;
+        const url = `https://v2.jokeapi.dev/joke/Any?contains=${term}`;
+        try{
+            const response = await fetch(url); 
+            const data = await response.json();
+
+        }
 
 
     }
