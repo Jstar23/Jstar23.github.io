@@ -38,7 +38,7 @@
     style="background-image: url('https://c4.wallpaperflare.com/wallpaper/916/819/709/1920x1080-px-feelsbadman-humor-memes-pepe-meme-art-dress-hd-art-wallpaper-preview.jpg'); height: 100vh; background-size: cover; background-repeat: no-repeat; "> 
     <div id="categories-section">
        <h2>Random Joke</h2>
-        <select id="category-filter" class="form-select my-2">
+        <select id="category-filter" class="form-select">
             <option value="">All Categories</option>
             <option value="Programming">Programming</option>
             <option value="Miscellaneous">Miscellaneous</option>
@@ -50,15 +50,18 @@
         <button class="btn btn-primary my-2" onclick="fetchJokes()">Get Jokes</button>
         <div id="jokes-container" class="mt-4"></div>
     </div>
+    <div id="search-section" class="hidden">
+        <h2>Search for Jokes</h2>
+        <input id="search-term" class="form-control my-2" placeholder="Enter a keyword (example: programming, etc)">
+        <button class="btn btn-secondary my-2" onclick="searchJokes()">Search</button>
+        <div id="search-results" class="mt-4"></div>
+    </div>
 </div>
+
 </div>
 
 <script>
- 
- 
- 
- 
- async function fetch() {
+ async function fetchJokes() {
     
    
 
