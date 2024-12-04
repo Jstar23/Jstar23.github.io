@@ -34,14 +34,10 @@
         </div>
     </nav>
 
-
-
-
 <div class="bg-image"
     style="background-image: url('https://media.tenor.com/2fze4WLeJVcAAAAi/h72david.gif'); height: 100vh;"> 
-    <div class="container">
-       <h1>Random Joke</h1>
-       <div class = "text-category">
+    <div id="categories-section">
+       <h2>Random Joke</h2>
         <select id="category-filter" class="form-select">
             <option value="">All Categories</option>
             <option value="Programming">Programming</option>
@@ -51,25 +47,11 @@
             <option value="Spooky">Spooky</option>
             <option value="Christmas">Christmas</option>
         </select>
+        <button class="btn btn-primary my-2" onclick="fetchJokes()">Get Jokes</button>
+        <div id="jokes-container" class="mt-4"></div>
     </div>
+</div>
     <hr>
-        <div class = "text-category">
-        <select id="blacklist-filter" class="form-select">
-            <option value="none">none</option>
-            <option value="nsfw">nsfw</option>
-            <option value="Religious">Religious</option>
-            <option value="Political">Political</option>
-            <option value="Racist">Racist</option>
-            <option value="Sexist">Sexist</option>
-            <option value="Explicit">Spooky</option>
-        </select>
-    </div>
-    <div class="row" id="joke-list"></div>
-    <hr>
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-primary" type="button" onclick="getJoke()">Hit me if you want to joke</button>
-        <div id="FinalProject"></div>
-    </div>
 </div>
 
 <script>
