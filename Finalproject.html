@@ -87,6 +87,14 @@
             jokeHtml = `<p class="jokeHtml">${data.setup}</p>
             <p class="jokeHtml"> ${data.delivery}</p>`;
         }
+
+        const jokeCard = `
+            <div class="card mt-3">
+                <div class="card-body">
+                    ${jokeHtml}
+                </div>
+            </div>`;
+            
         document.getElementById('jokes-container').innerHTML = jokeHtml;
     } catch (error) {
             console.error('Error fetching jokes:', error);
