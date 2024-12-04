@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Jokes API by Javier Reyes</title>
+    <title> Jokes API Final Project by Javier Reyes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
     h1 {
@@ -94,11 +94,15 @@
             const data = await response.json();
             let jokeHtml = '';
 
+            // this is to distinguish if its a one line joke or two line joke
             if(data.type == 'single') {
                 jokeHtml = `<p class="jokeHtml">${data.joke}</p>`;
+                // this is only jokes that have one line 
         } else if (data.type == 'twopart') {
+            // This the first line of the joke
             jokeHtml = `<p class="jokeHtml">${data.setup}</p>
             <p class="jokeHtml"> ${data.delivery}</p>`;
+            // this the second line of the joke
         }
 
         const jokeCardContent = `
@@ -113,7 +117,7 @@
             document.getElementById('jokes-container').innerHTML = "Sorry, there was an error fetching the jokes. Please try again later.";
         }
 }
-
+// This makes the search section hidden and to make the categories remove hidden when cilcked 
 function showCategories() {
     document.getElementById('search-section').classList.add('hidden');
     document.getElementById('categories-section').classList.remove('hidden');
@@ -137,15 +141,20 @@ async function searchJokes() {
             const response = await fetch(url); 
             const data = await response.json(); 
             let resultHtml = ''; 
+            // this is to distinguish if its a one line joke or two line joke
             if (data.type === 'single') {
                     resultHtml = `<p class="resultHtml">${data.joke}</p>`;
+                    // this is only jokes that have one line 
             } else if (data.type === 'twopart') {
                     resultHtml = `<p class="resultHtml">${data.setup}</p><p class="resultHtml">${data.delivery}</p>`;
+                    // this the second line of the joke
             }
 
+            // this to put a white border behind the joke and teh color of the text
+            // it has the results 
             resultsful = ` <div class="card mt-3" style="background-color: white; color: black;"> 
             <div class="card-body">
-            ${resultHtml}
+            ${resultHtml} 
             </div>
         </div>`;
             document.getElementById('results').innerHTML =  resultsful; 
@@ -155,7 +164,7 @@ async function searchJokes() {
             }
 
 }
-
+    // This makes the search section remove hidden and to make the categories hidden when cilcked
     function showSearch() {
     document.getElementById('categories-section').classList.add('hidden'); 
     document.getElementById('search-section').classList.remove('hidden');
