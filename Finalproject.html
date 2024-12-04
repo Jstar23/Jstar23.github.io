@@ -116,28 +116,7 @@
 
  
     
- async function searchJokes() {
-    const term = document.getElementId('search-term').value;
-    const url = `https://v2.jokeapi.dev/joke/Any?contains=${term}`;
-    try {
-        const response = await fetch(url); 
-        const Sj = await response.json();
-        let serachJ = '';
-        if (Sj.type === 'single') {
-            serachJ = `<p>${data.joke}</p>`;
-        } else if (Sj == 'twopart'){
-            serachJ = `<p>${data.setup}</p><p>${data.delivery}</p>`;
-        }
-        document.getElementById('results').innerHTML = serachJ;
-        } catch (error) {
-                document.getElementById('results').innerHTML = '<p>Error fetching jokes.</p>';
-                console.error('Error:', error); 
-        }
-    }
 
-    function searchJokes() {
-    location.reload(); 
- }
 
 </script>
 
