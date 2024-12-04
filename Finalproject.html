@@ -82,10 +82,10 @@
             let jokeHtml = '';
 
             if(data.type == 'single') {
-                jokeHtml = `<p>${data.joke}</p>`;
+                jokeHtml = `<p class="jokeHtml">${data.joke}</p>`;
         } else if (data.type == 'twopart') {
-            jokeHtml = `<p> ${data.setup}</p>
-            <p> ${data.delivery}</p>`;
+            jokeHtml = `<p class="jokeHtml">${data.setup}</p>
+            <p class="jokeHtml"> ${data.delivery}</p>`;
         }
         document.getElementById('jokes-container').innerHTML = jokeHtml;
     } catch (error) {
