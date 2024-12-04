@@ -21,12 +21,12 @@
        <div class = "text-category">
         <select id="category-filter" class="form-select">
             <option value="">All Categories</option>
-            <option vaule="Programming">Programming</option>
-            <option vaule="Miscellaneous">Miscellaneous</option>
-            <option vaule="Dark">Dark</option>
-            <option vaule="Pun">Pun</option>
+            <option value="Programming">Programming</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+            <option value="Dark">Dark</option>
+            <option value="Pun">Pun</option>
             <option value="Spooky">Spooky</option>
-            <option vaule="Christmas">Christmas</option>
+            <option value="Christmas">Christmas</option>
         </select>
     </div>
     <hr>
@@ -34,10 +34,10 @@
         <select id="blacklist-filter" class="form-select">
             <option value="none">none</option>
             <option value="nsfw">nsfw</option>
-            <option vaule="Religious">Religious</option>
-            <option vaule="Political">Political</option>
-            <option vaule="Racist">Racist</option>
-            <option vaule="Sexist">Sexist</option>
+            <option value="Religious">Religious</option>
+            <option value="Political">Political</option>
+            <option value="Racist">Racist</option>
+            <option value="Sexist">Sexist</option>
             <option value="Explicit">Spooky</option>
         </select>
     </div>
@@ -52,15 +52,26 @@
 <script>
  async function getJoke() {
     
-    let url = `https://v2.jokeapi.dev/joke/${category}`;
+    const baseUrl = `https://v2.jokeapi.dev/joke/`;
+    
+    const category = document.getElementById('category-filter').value || 'Any';
+    const blacklist = document.getElementById('blacklist-filter').value !== 'none'
+    ? document.getElementById('blacklist-filter').value
+    : '';
+    
+    let url = baseUrl + category;
     if (blacklist) {
         url += `?blacklistFlags=${blacklist}`;
     }
+
+    const options = {
+    method: 'GET',
+    };
         const jokeDisplay = document.getElementById('joke-display');
         jokeDisplay.style.display = 'none';
 
         try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
             const data = await response.json(); 
             console.log(data);
         }
@@ -81,34 +92,6 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
