@@ -18,7 +18,7 @@
     font-size: 1.2rem;
     }
     .resultHtml {
-        color: white;
+        color: black;
         font-size: 1.2rem;
     }
 </style>
@@ -122,6 +122,13 @@ function showCategories() {
 
 
 async function searchJokes() {
+    const jokesearch = `
+        <div class="card mt-3" style="background-color: white; color: black;"> 
+            <div class="card-body">
+                <p class="resultHtml">Loading...</p>
+            </div>
+        </div>`;
+   
     const term = document.getElementById('term').value;
     const url = `https://v2.jokeapi.dev/joke/Any?contains=${term}`;
      try {
@@ -133,7 +140,14 @@ async function searchJokes() {
             } else if (data.type === 'twopart') {
                     resultHtml = `<p class="resultHtml">${data.setup}</p><p class="resultHtml">${data.delivery}</p>`;
             }
-            document.getElementById('results').innerHTML = resultHtml; 
+
+            resultsful = ` <div class="card mt-3" style="background-color: white; color: black;"> 
+            <div class="card-body">
+                  <div class="card-body">
+            ${resultHtml}
+            </div>
+        </div>`;
+            document.getElementById('results').innerHTML =  resultsful; 
             } catch (error) {
                 document.getElementById('results').innerHTML = '<p>Error fetching jokes.</p>';
                 console.error('Error:', error); 
