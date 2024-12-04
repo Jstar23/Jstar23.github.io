@@ -112,14 +112,14 @@
 
     function showCategories() {
     location.reload(); 
-    }
+}
 
  
     
-    async function searchJokes() {
-      const term = document.getElementId('search-term').value;
-      const url = `https://v2.jokeapi.dev/joke/Any?contains=${term}`;
-      try {
+async function searchJokes() {
+    const term = document.getElementId('search-term').value;
+    const url = `https://v2.jokeapi.dev/joke/Any?contains=${term}`;
+    try {
         const response = await fetch(url); 
         const Sj = await response.json();
         let serachJ = '';
@@ -137,7 +137,7 @@
 
     function searchJokes() {
     location.reload(); 
-    }
+}
 
 </script>
 
