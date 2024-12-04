@@ -77,7 +77,7 @@
             </div>
         </div>`;
     document.getElementById('jokes-container').innerHTML = jokeCard;
-   
+    
     const category = document.getElementById('category-filter').value;
         const url = 'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist';
 
@@ -108,18 +108,31 @@
             console.error('Error fetching jokes:', error);
             document.getElementById('jokes-container').innerHTML = "Sorry, there was an error fetching the jokes. Please try again later.";
         }
-    }
+    };
 
     function showCategories() {
     location.reload(); 
-};
+    };
 
  
     
     async function searchJokes() {
       const term = document.getElementId('search-term').value;
       const url = `https://v2.jokeapi.dev/joke/Any?contains=${term}`;
-
+      try {
+        const response = await fetch(url); 
+        const Sj = await response.json();
+        let serachJ = '';
+        if (Sj.type === 'single') {
+            serachJ = `<p>${data.joke}</p>`;
+        } else if (Sj == 'twopart'){
+            serachJ = `<p>${data.setup}</p><p>${data.delivery}</p>`;
+        }
+        document.getElementById('results').innerHTML = serachJ;
+        } catch (error) {
+                document.getElementById('results').innerHTML = '<p>Error fetching jokes.</p>';
+                console.error('Error:', error); 
+        }
     }
 </script>
 
