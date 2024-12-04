@@ -16,7 +16,11 @@
     .jokeHtml {
     color: black;
     font-size: 1.2rem;
-}
+    }
+    .resultHtml {
+        color: white;
+        font-size: 1.2rem;
+    }
 </style>
 </head>
 <body>
@@ -125,9 +129,9 @@ async function searchJokes() {
             const data = await response.json(); 
             let resultHtml = ''; 
             if (data.type === 'single') {
-                    resultHtml = `<p>${data.joke}</p>`;
+                    resultHtml = `<p class="resultHtml">${data.joke}</p>`;
             } else if (data.type === 'twopart') {
-                    resultHtml = `<p>${data.setup}</p><p>${data.delivery}</p>`;
+                    resultHtml = `<p class="resultHtml">${data.setup}</p><p class="resultHtml">${data.delivery}</p>`;
             }
             document.getElementById('results').innerHTML = resultHtml; 
             } catch (error) {
