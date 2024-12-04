@@ -54,7 +54,7 @@
             <option value="Spooky">Spooky</option>
             <option value="Christmas">Christmas</option>
         </select>
-        <button class="btn btn-primary my-2" onclick="fetchJokes()">Get Jokes</button>
+        <button class="btn btn-primary my-2" onclick="location.reload(); fetchJokes()">Get Jokes</button>
         <div id="jokes-container" class="mt-4"></div>
     </div>
     
@@ -62,14 +62,13 @@
         <h2>Search for Jokes</h2>
         <div class="row mb-3"></div>
         <input id="term" class="col-sm-2 col-form-label" placeholder="Enter a keyword (example: programming, etc)">
-        <button class="btn btn-secondary my-2" onclick="searchJokes()">Search</button>
+        <button class="btn btn-secondary my-2" onclick="location.reload(); searchJokes()">Search</button>
         <div id="results" class="mt-4"></div>
     </div>
 </div>
 
 <script>
  async function fetchJokes() {
-    location.reload();
     const category = document.getElementById('category-filter').value;
         let url = 'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist';
 
