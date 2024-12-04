@@ -75,7 +75,7 @@
         try {
             const response = await fetch(url);
             const data = await response.json();
-            let jokeHtml = '';
+            let jokeHtml = '<div style="color: white;">';
 
             if(data.type == 'single') {
                 jokeHtml = `<p>${data.joke}</p>`;
