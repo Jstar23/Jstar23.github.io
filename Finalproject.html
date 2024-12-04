@@ -117,6 +117,8 @@
 function showCategories() {
     document.getElementById('search-section').classList.add('hidden');
     document.getElementById('categories-section').classList.remove('hidden');
+
+    document.getElementById('search-heading').classList.remove('hidden');
 }
 
 
@@ -155,9 +157,9 @@ async function searchJokes() {
 }
 
     function showSearch() {
-    document.getElementById('categories-section').classList.add('hidden');
+    document.getElementById('categories-section').classList.add('hidden'); 
     document.getElementById('search-section').classList.remove('hidden');
-    
+    document.getElementById('search-heading').classList.add('hidden');
 }
 
 
