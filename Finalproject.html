@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Jokes API by Javier Reyes</title>
-    <h1>Welcome to the Jokes Explorer Machine!</h1>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
     h1 {
@@ -14,6 +13,30 @@
 </style>
 </head>
 <body>
+<h1>Welcome to the Jokes Explorer Machine!</h1>
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Jokes Explorer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showCategories()">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSearch()">Search</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
 <div class="bg-image"
     style="background-image: url('https://media.tenor.com/2fze4WLeJVcAAAAi/h72david.gif'); height: 100vh;"> 
     <div class="container">
@@ -50,39 +73,13 @@
 </div>
 
 <script>
- async function getJoke() {
+ 
+ 
+ 
+ 
+ async function fetch() {
     
-    const baseUrl = `https://v2.jokeapi.dev/joke/`;
-    
-    const category = document.getElementById('category-filter').value || 'Any';
-    const blacklist = document.getElementById('blacklist-filter').value !== 'none'
-    ? document.getElementById('blacklist-filter').value
-    : '';
-    
-    let url = baseUrl + category;
-    if (blacklist) {
-        url += `?blacklistFlags=${blacklist}`;
-    }
-
-    const options = {
-    method: 'GET',
-    };
-        const jokeDisplay = document.getElementById('joke-display');
-        jokeDisplay.style.display = 'none';
-
-        try {
-        const response = await fetch(url);
-            const data = await response.json(); 
-            console.log(data);
-        }
-
-        
-
-
-
-        catch (error) {
-            console.error("Error fetching data:", error);
-        }
+   
 
     }
 
