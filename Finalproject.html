@@ -68,9 +68,29 @@
 
 <script>
  async function fetchJokes() {
-    
-   
+    const category = document.getElementById('category-filter').value;
+        let url = 'https://v2.jokeapi.dev/joke/Any';
 
+        if (category) {
+            url = `https://v2.jokeapi.dev/joke/${category}`;
+        }
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            let jokeHtml = '';
+
+            if(data.type == 'single') {
+                jokeHtml = `<p>{data.joke}</p>`;
+        } else if (data.type == 'twopart') {
+            jokeHtml = `<p> ${data.setup}</p>
+            <p> ${data.delivery}</p>`;
+        }
+        document.getElementById('jokes-container').innerHTML = jokeHtml;
+    } catch (error) {
+            console.error('Error fetching jokes:', error);
+            document.getElementById('jokes-container').innerHTML = "Sorry, there was an error fetching the jokes. Please try again later.";
+        }
     }
 
 
@@ -80,6 +100,8 @@
 
 
     }
+
+ 
 
 </script>
 
