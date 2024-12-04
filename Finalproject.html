@@ -130,7 +130,7 @@ async function searchJokes() {
                 <p class="resultHtml">Loading...</p>
             </div>
         </div>`;
-        document.getElementById('jokes-container').innerHTML = jokesearch;
+    document.getElementById('jokes-container').innerHTML = jokesearch;
     const term = document.getElementById('term').value;
     const url = `https://v2.jokeapi.dev/joke/Any?contains=${term}`;
      try {
